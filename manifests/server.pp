@@ -1,12 +1,14 @@
-class nfs::server { 
-  $exports = hiera("exports")
+class nfs::server (
+    $exports = ['share1', 'share2'],
+    $networkallowed = $::network_eth0,
+    $netmaskallowed = $::netmask_eth0,
+  ) { 
   define list_exports {
     $export = $name
     file { $export:
       ensure => directory,
       mode   => '0775',
       owner  => 'root',
-#      group  => 'root'
     }
   }
   list_exports { $exports:; } -> File['/etc/exports']
