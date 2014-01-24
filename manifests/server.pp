@@ -24,7 +24,7 @@
 #
 # === Examples
 #
-#  class { nfs:
+#  class { 'nfs::server':
 #    $exports => [
 #      '/srv/photos',
 #      '/srv/videos',
