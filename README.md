@@ -35,5 +35,4 @@ chris AT chriscowley DOT me DOT uk
 Support
 -------
 
-Please log tickets and issues at our [Projects site](http://gitlab.chriscowley.me.uk/puppet/chriscowley-logstash/issues)
-
+Please log tickets on my [Gitlab](http://gitlab.chriscowley.me.uk/puppet/chriscowley-nfs/)
