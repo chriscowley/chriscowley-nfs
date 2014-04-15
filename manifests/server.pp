@@ -20,7 +20,21 @@
 #
 # [*$netmaskallowed*]
 #   Netmask of the network to allow access. Defaults to eth0 (from facter).
-
+#
+# [*$rquota_port*]
+#   Force RQuota to bind to a specific port
+#
+# [*$lockd_tcp_port*]
+#   Force lockd to bind to a specific TCP port
+#
+# [*$lockd_udp_port*]
+#   Force lockd to bind to a specific UDP port
+#
+# [*$mountd_port*]
+#   Force mountd to bind to a specific port
+#
+# [*$statd_port*]
+#   Force statd to bind to a specific port
 #
 # === Examples
 #
@@ -46,6 +60,11 @@ class nfs::server (
     $exports = [ '/srv/share'],
     $networkallowed = $::network_eth0,
     $netmaskallowed = $::netmask_eth0,
+    $rquota_port    = '875',
+    $lockd_tcp_port = '32803',
+    $lockd_udp_port = '32769',
+    $mountd_port    = '892',
+    $statd_port     = '662',
   ) {
   list_exports { $exports:; } -> File['/etc/exports']
   package { 'rpcbind':
@@ -59,7 +78,8 @@ class nfs::server (
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    source  => 'puppet:///modules/nfs/sysconfig-nfs',
+#    source  => 'puppet:///modules/nfs/sysconfig-nfs',
+    content => template('nfs/sysconfig-nfs.erb'),
     require => Package['nfs-utils']
   }
 

@@ -9,7 +9,7 @@ MOUNTD_NFS_V3="yes"
 # Path to remote quota server. See rquotad(8)
 #RQUOTAD="/usr/sbin/rpc.rquotad"
 # Port rquotad should listen on.
-#RQUOTAD_PORT=875
+RQUOTAD_PORT=<%= @rquota_port %>
 # Optinal options passed to rquotad
 #RPCRQUOTADOPTS=""
 #
@@ -17,9 +17,9 @@ MOUNTD_NFS_V3="yes"
 # Optional arguments passed to in-kernel lockd
 #LOCKDARG=
 # TCP port rpc.lockd should listen on.
-#LOCKD_TCPPORT=32803
+LOCKD_TCPPORT=<%= @lockd_tcp_port %>
 # UDP port rpc.lockd should listen on.
-#LOCKD_UDPPORT=32769
+LOCKD_UDPPORT=<%= @lockd_udp_port %>
 #
 #
 # Optional arguments passed to rpc.nfsd. See rpc.nfsd(8)
@@ -40,13 +40,13 @@ NFSD_MODULE="noload"
 # Optional arguments passed to rpc.mountd. See rpc.mountd(8)
 #RPCMOUNTDOPTS=""
 # Port rpc.mountd should listen on.
-#MOUNTD_PORT=892
+MOUNTD_PORT=<%= @mountd_port %>
 #
 #
 # Optional arguments passed to rpc.statd. See rpc.statd(8)
 #STATDARG=""
 # Port rpc.statd should listen on.
-#STATD_PORT=662
+STATD_PORT=<%= @statd_port %>
 # Outgoing port statd should used. The default is port
 # is random
 #STATD_OUTGOING_PORT=2020

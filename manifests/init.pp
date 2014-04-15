@@ -3,9 +3,11 @@
 # Installs and Configures Logstash from packages.
 # Currently only for RHEL6 and derivatives
 #
-# This module is only really here for completeness, it is not actually used. Instead, just call nfs::server directly.
+# This module is only really here for completeness, it is not actually used.
+# Instead, just call nfs::server directly.
 #
-# In the future there may be a partnering nfs::client module, but I have not got round to it yet (if ever).
+# In the future there may be a partnering nfs::client module, but I have not
+# got round to it yet (if ever).
 #
 # === Parameters
 #
@@ -16,7 +18,7 @@
 # === Examples
 #
 #  class { nfs::
-#    
+#
 #  }
 #
 # === Authors
