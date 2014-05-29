@@ -1,4 +1,4 @@
-define list_exports {
+define nfs::list_exports {
     $export = $name
     file { $export:
       ensure => directory,
