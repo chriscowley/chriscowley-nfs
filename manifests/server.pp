@@ -57,23 +57,16 @@
 #
 
 class nfs::server (
-  case $::operatingsystemmajrelease {
-    '7': {
-      service_name = 'nfs-server'
-    }
-    default: {
-      service_name = 'nfs'
-    }
-  }
-    $exports = [ '/srv/share'],
-    $networkallowed = $::network_eth0,
-    $netmaskallowed = $::netmask_eth0,
-    $rquota_port    = '875',
-    $lockd_tcp_port = '32803',
-    $lockd_udp_port = '32769',
-    $mountd_port    = '892',
-    $statd_port     = '662',
-  ) {
+  $service_name = $nfs::params::service_name,
+  $exports = [ '/srv/share'],
+  $networkallowed = $::network_eth0,
+  $netmaskallowed = $::netmask_eth0,
+  $rquota_port    = '875',
+  $lockd_tcp_port = '32803',
+  $lockd_udp_port = '32769',
+  $mountd_port    = '892',
+  $statd_port     = '662',
+) {
   nfs::list_exports { $exports:; } -> File['/etc/exports']
   package { 'rpcbind':
     ensure => latest,
