@@ -74,7 +74,7 @@ class nfs::server (
     $mountd_port    = '892',
     $statd_port     = '662',
   ) {
-  list_exports { $exports:; } -> File['/etc/exports']
+  nfs::list_exports { $exports:; } -> File['/etc/exports']
   package { 'rpcbind':
     ensure => latest,
   }

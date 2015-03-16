@@ -1,5 +1,6 @@
 # NFS
-Currently only support RHEL6 and derivatives (I test on CentOS).
+
+Currently only support RHEL6 and derivatives (I test on CentOS 6).
 
 For now it only does an NFS server and the config options are relatively limited. This is kind of on purpose; there are plenty of all-singing-all-dancing NFS modules on the Forge, but I wanted to cover 90% of bases (ok, myself) simply. As such I have tried to make the default relatively sane and simple. This does not mean they are the best, but it works easily.
 
