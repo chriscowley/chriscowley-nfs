@@ -1,10 +1,8 @@
 class nfs::params {
-  case $::operatingsystemmajrelease {
-    '7': {
-      $service_name = 'nfs-server'
-    }
-    default: {
-      $service_name = 'nfs'
-    }
+  if $operatingsystemmajrelease == '7' {
+    $service_name = 'nfs-server'
+  }
+  else {
+    $service_name = 'nfs'
   }
 }
