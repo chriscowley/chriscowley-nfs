@@ -29,5 +29,7 @@
 #
 # Copyright 2014 Chris Cowley
 #
-class nfs {
+class nfs (
+  $service_name = $nfs::server::params::service_name,
+){
 }

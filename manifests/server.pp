@@ -57,7 +57,7 @@
 #
 
 class nfs::server (
-  $service_name = $nfs::params::service_name,
+  $service_name = $nfs::service_name,
   $exports = [ '/srv/share'],
   $networkallowed = $::network_eth0,
   $netmaskallowed = $::netmask_eth0,
