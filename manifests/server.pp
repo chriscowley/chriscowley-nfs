@@ -57,6 +57,14 @@
 #
 
 class nfs::server (
+  case $::operatingsystemmajrelease {
+    '7': {
+      service_name = 'nfs-server'
+    }
+    default: {
+      service_name = 'nfs'
+    }
+  }
     $exports = [ '/srv/share'],
     $networkallowed = $::network_eth0,
     $netmaskallowed = $::netmask_eth0,
@@ -85,13 +93,13 @@ class nfs::server (
 
   file { '/etc/exports':
     content => template('nfs/exports.erb'),
-  } ~> Service['nfs']
+  } ~> Service[$nfs::server::service_name]
 
   service { 'rpcbind':
     ensure => running,
     enable => true,
   }
-  service { 'nfs':
+  service { $nfs::server::service_name:
     ensure    => running,
     enable    => true,
     subscribe => File['/etc/sysconfig/nfs'],
